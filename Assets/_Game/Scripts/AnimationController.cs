@@ -21,6 +21,7 @@ public class AnimationController : MonoBehaviour
         //    //});
         //    .setOnComplete(ScaleDown);
         Animation();
+       // GameObject.Find("SceneHandler").GetComponent<SceneHandler>().OnEnterLoadingScene();
     }
 
     //void ScaleDown()
