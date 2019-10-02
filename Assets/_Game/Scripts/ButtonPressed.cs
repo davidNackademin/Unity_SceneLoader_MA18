@@ -5,12 +5,20 @@ using UnityEngine;
 public class ButtonPressed : MonoBehaviour
 {
 
+    public string nextLevel;
 
-    public SceneHandler sceneHandler;
+    private void Start()
+    {
+       var tmp =  SceneHandler.Instance;
+    }
+
+
+    //public SceneHandler sceneHandler;
 
     private void OnMouseDown()
     {
-        sceneHandler.ChangeLevelTo("Level2");
+        SceneHandler.Instance.ChangeLevelTo(nextLevel);
+        //sceneHandler.ChangeLevelTo("Level2");
     }
 
 

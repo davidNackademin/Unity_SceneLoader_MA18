@@ -10,6 +10,33 @@ public class SceneHandler : MonoBehaviour
     SpriteRenderer whiteSquareRenderer;
     public string levelToLoad;
 
+    private static SceneHandler _instance;
+
+    public static SceneHandler Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = Instantiate(Resources.Load<GameObject>("SceneHandler"))
+                    .GetComponent<SceneHandler>();
+            }
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {
